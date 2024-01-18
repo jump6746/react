@@ -1,19 +1,37 @@
 // createElement 함수
 // DOM 노드 : HTMLElement 반환
-function createElement(type, props, ...children){
+export function createElement(type, props = {}, ...children){
   // type - DOM 요소 노드 생성
   const element = document.createElement(type); // "div", "caption"
+
+  // for - in
+  // for(const key in props){
+    
+  //   if(Object.hasOwnProperty.call(props, key)){
+  //     const value = props[key];
+  //     element.setAttribute(key, value);
+  //   }
+  // }
+  // 문 ( statement )
+  // for(const [key, value] of Object.entries(props)){
+  //   element.setAttribute(key, value);
+  // }
+  // 식 ( expression )
+  const keyValues = Object.entries(props);
+  keyValues.forEach(([key, value]) => element.setAttribute(key, value));
 
   // props - 생성한 DOM 요소 노드에 속성 설정
   // ...children - 생성한 DOM 요소 노드의 자식으로 구성
   // 생성한 DOM 요소 노드 반환
+
+  element.append(...children);
 
   return element;
 }
 
 // createRoot 함수
 // 객체 : {render, unmount}
-function createRoot(domNode /* container */){
+export function createRoot(domNode /* container */){
 
 }
 
