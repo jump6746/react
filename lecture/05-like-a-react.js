@@ -1,4 +1,4 @@
-import {createElement as h} from "./lib/EUID.js";
+import {createElement as h, createRoot } from "./lib/EUID.js";
 
 const appElement = h("div", {
   id: "app"
@@ -17,4 +17,15 @@ const appElement = h("div", {
   )
 );
 
-console.log(appElement);
+const root = createRoot(document.getElementById("root"));
+
+root.render(appElement);
+
+// 버튼 요소 클릭 이벤트 핸들링
+// BEM 표기법
+
+const getOutButton = document.querySelector(".getOutReact__button");
+
+getOutButton.addEventListener("click", () => {
+  root.unmount();
+})
