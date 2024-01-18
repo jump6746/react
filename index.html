@@ -5,46 +5,38 @@
     <title>리액트 펀더멘탈</title>
     <link rel="icon" href="/assets/favicon.svg" />
     <script type="module">
-      // React 모듈 불러오기
-      import React from "https://esm.sh/react";
+      import { createElement as h /* hyperScript */ } from "https://esm.sh/react";
+      import { createRoot } from "https://esm.sh/react-dom";
 
-      // React DOM 모듈 불러오기
-      import ReactDOM from "https://esm.sh/react-dom";
-
-      console.log(`ReactDOM.version = ${ReactDOM.version}`);
-      // console.log(React);
-      // console.log(React.version);
-
-      // 리액트 요소 생성
+      // React.createElement
+      // ReactDom.createRoot
+   
+      console.log(h);
       
-      // <h1>리액트</h1>
-      // <p>리액트는 가장 인기있는 프론트엔드 개발 도구입니다.</p>
-
-      const h1Element = React.createElement(
-        // type,         // 요소 이름 (문자)
+      const h1Element = h(
         "h1",
-        // props,        // 속성 집합 (객체)
         {},
-        // ...children   // 중첩된 요소 또는 텍스트
         "리액트"
       );
 
-      const pElement = React.createElement(
+      const pElement = h(
         "p",
         {},
         "리액트는 UI 구축을 위한 자바스크립트 라이브러리입니다."
       );
 
-      // 리액트가 하는 일은 리액트 Element를 생성하는 것이다.
-      // 리액트 Element를 화면(DOM)에 렌더링하려면 "리액트 DOM"이 필요하다.
+      const appElement = h(
+        "div",
+        {id: "app"},
+        h1Element,
+        pElement,
+      );
 
-      // ReactDOM API 
-      // ReactDOM.createRoot(container) // 실제 DOM에 위치한 #root 요소 
-      const reactDomRoot = ReactDOM.createRoot(
+      const reactDomRoot = createRoot(
         document.getElementById("root")
-      )
+      );
 
-      console.log(reactDomRoot);
+      reactDomRoot.render(appElement);
 
     </script>
   </head>
