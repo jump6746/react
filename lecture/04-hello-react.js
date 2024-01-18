@@ -34,3 +34,10 @@ const reactDomRoot = createRoot(
 
 reactDomRoot.render(appElement);
 
+// .getOutReact__button 버튼 클릭 이벤트 핸들링
+
+document.querySelector(".getOutReact__button")
+  .addEventListener("click", () => {
+    // 리액트 나가~ 
+    reactDomRoot.unmount();
+  })
