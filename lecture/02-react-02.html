@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta content="charset=UTF-8" />
+    <title>리액트 펀더멘탈</title>
+    <link rel="icon" href="/assets/favicon.svg" />
+    <script type="module">
+      import { createElement as h /* hyperScript */ } from "https://esm.sh/react";
+      import { createRoot } from "https://esm.sh/react-dom";
+
+      // React.createElement
+      // ReactDom.createRoot
+   
+      console.log(h);
+      
+      const h1Element = h(
+        "h1",
+        {},
+        "리액트"
+      );
+
+      const pElement = h(
+        "p",
+        {},
+        "리액트는 UI 구축을 위한 자바스크립트 라이브러리입니다."
+      );
+
+      const appElement = h(
+        "div",
+        {id: "app"},
+        h1Element,
+        pElement,
+      );
+
+      const reactDomRoot = createRoot(
+        document.getElementById("root")
+      );
+
+      reactDomRoot.render(appElement);
+
+    </script>
+  </head>
+  <body>
+
+    <noscript>이 앱을 사용하려면 자바스크립트 활성화가 필요합니다.</noscript>
+
+    <!-- 바닐라에서는 마크업을 HTML로 했고, -->
+    <!-- 리액트에서는 자바스크립트로 마크업을 합니다. -->
+    <div id="root">
+    </div>
+
+  </body>
+</html>
